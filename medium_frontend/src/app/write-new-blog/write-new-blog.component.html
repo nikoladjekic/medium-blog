@@ -1,0 +1,90 @@
+<br><br>
+
+<h3>Write new blog</h3>
+<br>
+<h6><i>*all fields are required</i></h6>
+
+<form [formGroup]="newBlogForm" (ngSubmit)="onSubmit()">
+<div class="row">
+  <div class="col-md-9">
+    <br>
+    
+      <input required class="blogTitle" type="text" placeholder="Title" formControlName="title">
+      <div *ngFor="let err of newUserErrorMsgs.title">
+        <div class="error" *ngIf="newBlogForm.get('title').hasError(err.type) && (newBlogForm.get('title').dirty || newBlogForm.get('title').touched)">
+          {{err.message}}
+        </div>
+      </div>
+      <br><br>
+
+      <input required class="blogSubtitle" type="text" placeholder="Subtitle" formControlName="subtitle">
+      <div *ngFor="let err of newUserErrorMsgs.subtitle">
+        <div class="error" *ngIf="newBlogForm.get('subtitle').hasError(err.type) && (newBlogForm.get('subtitle').dirty || newBlogForm.get('subtitle').touched)">
+          {{err.message}}
+        </div>
+      </div>
+      <br><br>
+
+      <input required class="blogTitle" type="text" placeholder="Blog picture URL" formControlName="picture">
+      <div *ngFor="let err of newUserErrorMsgs.picture">
+        <div class="error" *ngIf="newBlogForm.get('picture').hasError(err.type) && (newBlogForm.get('picture').dirty || newBlogForm.get('picture').touched)">
+          {{err.message}}
+        </div>
+      </div>
+      <br><br>
+
+      <textarea required formControlName="text" class="blog" name="writeBlog" style="resize: none;" id="blogTextArea" cols="160" rows="10" placeholder="Write blog here..."></textarea>
+      <div *ngFor="let err of newUserErrorMsgs.text">
+        <div class="error" *ngIf="newBlogForm.get('text').hasError(err.type) && (newBlogForm.get('text').dirty || newBlogForm.get('text').touched)">
+          {{err.message}}
+        </div>
+      </div>
+      <br><br>
+
+  </div> <!-- md-9 column end -->
+
+  <div class="col-md-3 text-center">
+
+    <br>
+
+    <div class="pick-line">
+
+      <label for="domains">Select Your Blog Domain:</label>
+      <select required class="selectpicker" formControlName="domain">
+        <option value="" disabled hidden>Domains:</option>
+        <option *ngFor="let domain of allDomains" value="{{domain.domainId}}">{{domain.name}}</option>
+      </select> &nbsp;
+      <div *ngFor="let err of newUserErrorMsgs.domain">
+        <div class="error" *ngIf="newBlogForm.get('domain').hasError(err.type) && (newBlogForm.get('domain').dirty || newBlogForm.get('domain').touched)">
+          {{err.message}}
+        </div>
+      </div>
+
+      <label for="keywords">Select keywords:</label>
+      <select required multiple size="5" class="selectpicker keywords" formControlName="keywords">
+        <option *ngFor="let keyword of allKeywords" value="{{keyword.keywordId}}">{{keyword.word}}</option>
+      </select>
+      <div *ngFor="let err of newUserErrorMsgs.keywords">
+        <div class="error" *ngIf="newBlogForm.get('keywords').hasError(err.type) && (newBlogForm.get('keywords').dirty || newBlogForm.get('keywords').touched)">
+          {{err.message}}
+        </div>
+      </div>
+      <label for="tags">Select relatable tags:</label>
+      <select required multiple size="5" class="selectpicker tags" formControlName="tags">
+        <option *ngFor="let tag of allTags" value="{{tag.tagId}}">{{tag.tag}}</option>
+      </select>
+      <div *ngFor="let err of newUserErrorMsgs.tags">
+        <div class="error" *ngIf="newBlogForm.get('tags').hasError(err.type) && (newBlogForm.get('tags').dirty || newBlogForm.get('tags').touched)">
+          {{err.message}}
+        </div>
+      </div>
+    </div>
+    
+  </div> <!-- md-3 end -->
+
+  <input [disabled]="!newBlogForm.valid" type="submit" class="btn btn-secondary" value="Post Blog">  
+
+</div> <!-- div - row end -->
+{{postString}} <br>
+</form>
+<br><br>

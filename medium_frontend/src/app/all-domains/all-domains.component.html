@@ -1,0 +1,23 @@
+<nav class="navbar">    
+  <a routerLink="/"><img title="Back to Homepage" 
+  src="https://cdn-images-1.medium.com/max/800/1*F6SrJR7_s95r6oCF3ugMZw.png" alt="medium logo" width="150px"></a>
+</nav>
+<hr>
+<br>
+<div class="inner-sec text-center">
+  <h2>All Domains</h2>
+</div>
+
+<div class="row">
+
+  <div class="col-md-4" *ngFor="let domain of allDomains">
+    <div class="blog-cube">
+      <a routerLink="/allBlogsInDomain/{{domain.domainId}}" routerLinkActive="active"><h2>{{domain.name}}</h2></a> 
+      <img class="imgs" src="{{domain.picture}}"
+        alt="topic picture">
+    </div>
+  </div>
+
+</div> <!-- end of row container -->
+
+<app-footer></app-footer>

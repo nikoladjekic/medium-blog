@@ -1,0 +1,59 @@
+<br><br>
+
+<h3>Edit blog</h3>
+<br>
+<h6><i>*don't forget to select all fields</i></h6>
+<form [formGroup]="newBlogForm" (ngSubmit)="onSubmit()">
+<div class="row">
+  <div class="col-md-9">
+    <br>
+    
+      <input class="blogTitle" type="text" placeholder="Title" formControlName="title">
+
+      <br><br>
+
+      <input class="blogSubtitle" type="text" placeholder="Subtitle" formControlName="subtitle">
+
+      <br><br>
+
+      <input class="blogTitle" type="text" placeholder="Blog picture URL" formControlName="picture">
+
+      <br><br>
+
+      <textarea formControlName="text" class="blog" name="writeBlog" style="resize: none;" id="blogTextArea" cols="160" rows="10" placeholder="Write blog here..."></textarea>
+
+      <br><br>
+
+  </div> <!-- md-9 column end -->
+
+  <div class="col-md-3 text-center">
+
+    <br>
+
+    <div class="pick-line">
+
+      <label for="keywords">Select your blog domain:</label>
+      <select class="selectpicker" formControlName="domain">
+        <option value="" disabled hidden>Domains:</option>
+        <option *ngFor="let domain of allDomains" value="{{domain.domainId}}">{{domain.name}}</option>
+      </select> &nbsp;
+
+      <label for="keywords">Select keywords:</label>
+      <select multiple size="5" class="selectpicker keywords" formControlName="keywords">
+        <option *ngFor="let keyword of allKeywords" value="{{keyword.keywordId}}">{{keyword.word}}</option>
+      </select>
+
+      <label for="tags">Select relatable tags:</label>
+      <select multiple size="5" class="selectpicker tags" formControlName="tags">
+        <option *ngFor="let tag of allTags" value="{{tag.tagId}}">{{tag.tag}}</option>
+      </select>
+
+    </div>
+    
+  </div> <!-- md-3 end -->
+
+  <input type="submit" class="btn btn-secondary" value="Confirm changes">  
+</div> <!-- div - row end -->
+{{postString}}
+</form>
+

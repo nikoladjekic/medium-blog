@@ -1,0 +1,31 @@
+<br><br>
+<h1>
+  Log counter
+</h1>
+<br>
+
+<table class="table table-striped">
+
+  <!-- header ne dirati ! -->
+  <thead class="thead-dark">
+    <tr class="row">
+      <th class="col-md-1">Log ID:</th>
+      <th class="col-md-3">Date:</th>
+      <th class="col-md-4">IP Address:</th>
+      <th class="col-md-4">Blog title:</th>
+    </tr>
+  </thead>
+
+  <!-- ispod ubaciti dinamicke vrednosti -->
+  <tbody>
+
+    <tr class="row" *ngFor="let log of allLogs">
+      <th class="col-md-1"> {{log.logcounterid}} </th>
+      <td class="col-md-3"> {{log.date | date}} </td>
+      <td class="col-md-4"> {{log.ipadress}} </td>
+      <td class="col-md-4"> {{log.blog.title}} </td>
+    </tr>
+
+  </tbody>
+</table>
+<br><br>

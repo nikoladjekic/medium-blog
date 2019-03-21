@@ -1,0 +1,21 @@
+<h1>All Blogs</h1>
+
+<table class="table table-hover">
+  <tbody>
+
+    <!-- test row tabela -->
+    <tr class="row" *ngFor="let blog of allBlogs">
+      <td class="col-md-1">{{blog.userDetails.firstName}} {{blog.userDetails.lastName}}</td>
+      <td class="col-md-1">{{blog.domain.name}}</td>
+      <td class="col-md-5">{{blog.title}}</td>
+      <td class="col-md-1"><i class="far fa-eye"></i> views: {{blog.logcounters.length}}</td>
+      <td class="col-md-1">{{blog.date | date}}</td>
+      <td class="col-md-3">
+        <button class="btn btn-secondary" routerLink="/editBlog/{{blog.blogId}}" routerLinkActive="active"><i class="fas fa-edit"></i> Edit Blog</button>
+        <button class="btn btn-danger" (click)="deleteBlog(blog.blogId)"><i class="fas fa-trash"></i> Delete Blog</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+{{deleteString}}

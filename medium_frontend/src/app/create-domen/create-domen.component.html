@@ -1,0 +1,12 @@
+<form [formGroup]="form" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">Add a new domain</p>
+
+    <input formControlName="domainName" class="input" type="text" placeholder="Domain name" (keyup)="takeDomainNameValue(getDomainName.value)">
+
+    <input formControlName="domainPicture" class="input" type="text" placeholder="Blog picture URL" (keyup)="takeDomainPictureValue(getDomainPicture.value)">
+    
+    <button class="btn btn-secondary" (click)="createDomen()"><i class="fas fa-file-signature"></i> Add a new domain</button>    
+</form>
+
+{{respMsg}}

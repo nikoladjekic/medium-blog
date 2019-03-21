@@ -1,0 +1,46 @@
+<form class="text-center border border-light p-5" [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+
+  <p class="h4 mb-4">Create blogger:</p>
+
+  <input formControlName="username" type="username" id="newBloggerUsername" class="form-control mb-4" placeholder="Username - must be at least 3 characters">
+  <div *ngFor="let err of newUserErrorMsgs.username">
+    <div class="error" *ngIf="newUserForm.get('username').hasError(err.type) && (newUserForm.get('username').dirty || newUserForm.get('username').touched)">
+      {{err.message}}
+    </div>
+  </div>
+  <input formControlName="password" type="password" id="newBloggerPassword" class="form-control mb-4" placeholder="Password - must be at least 8 characters">
+  <div *ngFor="let err of newUserErrorMsgs.password">
+    <div class="error" *ngIf="newUserForm.get('password').hasError(err.type) && (newUserForm.get('password').dirty || newUserForm.get('password').touched)">
+      {{err.message}}
+    </div>
+  </div>
+  <br><br>
+
+  <hr>
+
+  <h5>Blogger Details:</h5>
+
+  <input formControlName="firstName" type="text" id="newBloggerName" class="form-control mb-4" placeholder="First Name">
+  <div *ngFor="let err of newUserErrorMsgs.firstName">
+    <div class="error" *ngIf="newUserForm.get('firstName').hasError(err.type) && (newUserForm.get('firstName').dirty || newUserForm.get('firstName').touched)">
+      {{err.message}}
+    </div>
+  </div>
+  <input formControlName="lastName" type="text" id="newBloggerSurname" class="form-control mb-4" placeholder="Last Name">
+  <div *ngFor="let err of newUserErrorMsgs.lastName">
+    <div class="error" *ngIf="newUserForm.get('lastName').hasError(err.type) && (newUserForm.get('lastName').dirty || newUserForm.get('lastName').touched)">
+      {{err.message}}
+    </div>
+  </div>
+  <input formControlName="email" type="email" id="newBloggerEmail" class="form-control mb-4" placeholder="E-mail Address">
+  <div *ngFor="let err of newUserErrorMsgs.email">
+    <div class="error" *ngIf="newUserForm.get('email').hasError(err.type) && (newUserForm.get('email').dirty || newUserForm.get('email').touched)">
+      {{err.message}}
+    </div>
+  </div>
+
+  <input [disabled]="!newUserForm.valid" block="true" class=" btn btn-secondary" type="submit" value="Create Blogger">
+
+</form>
+{{newUserAddedString}} <br>
+<a block="true" class=" btn btn-secondary" href="adminOptions"><i class="fas fa-arrow-left"></i> Go Back</a>

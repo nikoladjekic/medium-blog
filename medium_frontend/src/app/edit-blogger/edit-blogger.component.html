@@ -1,0 +1,31 @@
+<form class="text-center border border-light p-5" [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+
+  <h5>Edit Blogger Data:</h5>
+
+  <input formControlName="firstName" type="text" id="newBloggerName" class="form-control mb-4" placeholder="First Name">
+  <div *ngFor="let err of newUserErrorMsgs.firstName">
+    <div class="error" *ngIf="editUserForm.get('firstName').hasError(err.type) && (editUserForm.get('firstName').dirty || editUserForm.get('firstName').touched)">
+      {{err.message}}
+    </div>
+  </div>
+  <input formControlName="lastName" type="text" id="newBloggerSurname" class="form-control mb-4" placeholder="Last Name">
+  <div *ngFor="let err of newUserErrorMsgs.lastName">
+    <div class="error" *ngIf="editUserForm.get('lastName').hasError(err.type) && (editUserForm.get('lastName').dirty || editUserForm.get('lastName').touched)">
+      {{err.message}}
+    </div>
+  </div>
+  <input formControlName="email" type="email" id="newBloggerEmail" class="form-control mb-4" placeholder="E-mail Address">
+  <div *ngFor="let err of newUserErrorMsgs.email">
+    <div class="error" *ngIf="editUserForm.get('email').hasError(err.type) && (editUserForm.get('email').dirty || editUserForm.get('email').touched)">
+      {{err.message}}
+    </div>
+  </div>
+
+  <input [disabled]="!editUserForm.valid" block="true" class=" btn btn-secondary" type="submit" value="Save changes">
+
+</form>
+<br><br>
+{{editUserMsg}} <br><br>
+<a block="true" class=" btn btn-secondary" href="adminOptions"><i class="fas fa-arrow-left"></i> Go Back</a>
+
+

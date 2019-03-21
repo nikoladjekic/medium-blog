@@ -1,0 +1,46 @@
+<nav class="navbar">    
+  <a routerLink="/"><img title="Back to Homepage" 
+  src="https://cdn-images-1.medium.com/max/800/1*F6SrJR7_s95r6oCF3ugMZw.png" alt="medium logo" width="150px"></a>
+</nav>
+<hr>
+<br>
+
+<div class="outer-sec text-center">
+  <img class="welcome-img" src="{{domain.picture}}" alt="pic">
+</div>
+
+<div class="inner-sec text-center">
+  <h1 class="hBig">{{domain.name}}</h1>
+</div>
+
+<table class="table table-hover">
+  <tbody>
+
+    <tr *ngFor="let blog of blogs" class="row blog-table text-left">
+      <td class="col-md-2"><img class="img" src="{{blog.picture}}" alt="blog pic"></td>
+      <td class="col-md-8">
+        <h3 class="align-top" class="truncateTitle"><a [routerLink]="['/blog', blog.blogId]"><strong>{{blog.title}}</strong></a></h3>
+        <p>
+          <span class="truncate align-middle">
+            {{blog.text}}
+          </span>&nbsp; <a [routerLink]="['/blog', blog.blogId]">Read more</a>
+        </p>
+        <a [routerLink]="['/author', blog.userDetails.usersUsername]" class="align-bottom">
+          <i class="fas fa-user-tie"></i> {{blog.userDetails.firstName}} {{blog.userDetails.lastName}}</a>
+            &nbsp;&nbsp;
+        <span><i class="far fa-eye"></i> views: {{blog.logcounters.length}} </span>
+        &nbsp;&nbsp;
+        <span class="tagStyle" *ngFor="let tag of blog.tags"><a id="keywordId">{{tag.tag}}</a></span>
+        &nbsp;&nbsp;
+      </td>
+      <td class="col-md-2 text-center">
+        <br>
+        <p>{{blog.domain.name}}</p>
+        <hr>
+        <p>{{blog.date | date}}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-footer></app-footer>

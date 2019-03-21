@@ -1,0 +1,49 @@
+<br><br>
+<h1 class="text-center">Manage keywords and tags</h1>
+<br><br>
+
+<!-- forma obuhvata sve, ceo view -->
+<form action="">
+  <div class="row">
+
+    <!-- levi deo ekrana -->
+    <div class="col-md-6">
+      <h2> &nbsp; Keywords:</h2>
+      <input [formControl]="addKeywrodForm" class="input" type="text" placeholder="Enter new keyword">
+      <input type="submit" class="btn btn-secondary" value="Add keyword" (click)="addKeyword()">
+
+      <table class="table table-striped">
+        <tbody>
+
+          <tr class="row" *ngFor="let keyword of allKeywords">
+            <td class="col-md-10"> {{keyword.word}} </td>
+            <td class="col-md-2"><input type="submit" class="btn btn-danger" value="Delete" (click)="deleteKeyword(keyword.keywordId)"></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div> <!-- kraj levog dela -->
+
+
+    <!-- desni deo ekrana -->
+    <div class="col-md-6">
+      <h2> &nbsp; Tags:</h2>
+      <input class="input" type="text" placeholder="Enter new tag" [formControl]="addTagForm">
+      <input type="submit" class="btn btn-secondary" value="Add tag" (click)="addTag()">
+
+      <table class="table table-striped">
+        <tbody>
+
+          <tr class="row" *ngFor="let tag of allTags">
+            <td class="col-md-10"> {{tag.tag}} </td>
+            <td class="col-md-2"><input type="submit" class="btn btn-danger" value="Delete" (click)="deleteTag(tag.tagId)"></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div> <!-- kraj desnog dela -->
+
+  </div>
+</form>

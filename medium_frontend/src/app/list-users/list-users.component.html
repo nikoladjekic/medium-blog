@@ -1,0 +1,34 @@
+<h1 class="text-center">All Bloggers</h1>
+
+
+<div class="new-user">
+  <a href="addNewUsers">Add new blogger 
+    <i class="fas fa-user-plus"></i></a>
+</div>
+
+<table class="table table-hover text-center">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let blogger of allUsers">
+      <th scope="row"> {{blogger.usersUsername}}</th>
+      <td> {{blogger.firstName}} </td>
+      <td> {{blogger.lastName}} </td>
+      <td> {{blogger.email}} </td>
+      <td>
+        <button class="btn btn-secondary" routerLink="/editBlogger/{{blogger.usersUsername}}" routerLinkActive="active"><i class="fas fa-user-edit"></i> Edit Blogger</button>
+        <button class="btn btn-danger" (click)="deleteUser(blogger.usersUsername)"><i class="fas fa-user-times"></i> Delete Blogger</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{{deleteString}}

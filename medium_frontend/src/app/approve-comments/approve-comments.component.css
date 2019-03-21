@@ -1,0 +1,16 @@
+.btn {
+    padding: 10px;
+    margin: 5px;
+}
+
+h1 {
+    margin: 30px;
+}
+
+.row {
+    text-align: center;
+    vertical-align: middle;
+    margin: 5px;
+    border: 1px solid rgb(206, 206, 206);
+}
+

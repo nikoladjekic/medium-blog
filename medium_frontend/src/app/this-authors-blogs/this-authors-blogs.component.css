@@ -1,0 +1,65 @@
+.navbar {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  #search-input {
+    border: 1px solid rgb(86, 218, 86);
+  }
+  
+  .navbar > a:hover {
+    transform: scale(1.1);
+    transition-duration: 0.2s;
+  }
+  
+  .h1 {
+    margin: 50px;
+  }
+  
+  .blog-table {
+    width: 100%;
+    height: 140px;
+  }
+
+  .tagStyle {
+    margin-left: 0.6em;
+    font-weight: 60;
+  }
+  
+  .img {    
+      object-fit: cover;
+      width: 100%;
+      height: 110px;
+      margin: 5px;
+  }
+  
+  a {
+    color: rgb(56, 56, 56);
+  }
+  
+  .truncate {
+    display: inline-block;
+    width: 630px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .truncate+a {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 0.9em;
+  }
+  
+  .align-top {
+    margin-top: 10px;
+  }
+  
+  .truncateTitle {
+    display: inline-block;
+    width: 700px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

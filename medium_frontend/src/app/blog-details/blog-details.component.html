@@ -1,0 +1,94 @@
+<div class="container">
+
+  <nav class="navbar">
+    <a class="text-center" routerLink="/">
+      <img title="Back to homepage" src="https://cdn-images-1.medium.com/max/800/1*F6SrJR7_s95r6oCF3ugMZw.png" alt="medium logo" width="150px">
+    </a>
+    <h6> {{ ourBlog.domain.name }} </h6>
+  </nav>
+
+  <br>
+
+  <div>
+    <h1> {{ ourBlog.title }} </h1>
+  </div><br>
+
+  <img class="blog-pic" src="{{ourBlog.picture}}" alt="blog-photo" title="blog image">  
+
+  <div>
+    <h3> {{ ourBlog.subtitle }} </h3>
+  </div><br>
+
+  <i class="fas fa-lg fa-user"></i> Author:&nbsp;
+  <a title="Read all from this blogger" [routerLink]="['/author', ourBlog.userDetails.usersUsername]"> 
+    {{ourBlog.userDetails.firstName}} {{ourBlog.userDetails.lastName}} </a>
+  <br><br><br>
+
+  <article>
+    {{ourBlog.text}}
+  </article>
+
+  <br><br><br>
+  <hr>
+
+  <div class="comments">
+    <br>
+    <h2><i class="far fa-comments"></i> Comments:</h2>
+    <br>
+    <table class="table table-hover">
+      <tbody>
+        <tr class="row text-center" *ngFor="let comment of comments">
+          <td class="col-md-2">
+            <br>
+            <i class="fas fa-user"></i>&nbsp; {{ comment.commentator }}
+            <hr>
+            <p>{{comment.date | date}}</p>
+          </td>
+          <td class="col-md-10">
+            <p class="text-left">
+              {{comment.text}}
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> <!-- comments div end -->
+
+  <br>
+  <hr><br>
+
+  <h3><i class="far fa-comment"></i> Write your comment</h3><br>
+
+  <div class="write-comment">
+    <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+
+      <label for="nickname">Nickname: &nbsp;</label>
+      <input 
+        id="nickname"
+        class="green-input" 
+        type="text" name="name"
+        placeholder="Nickname"
+        formControlName="commentator">
+      <br><br>
+      <textarea 
+        class="comment-textarea green-input"
+        name="comment" cols="165" rows="6" 
+        placeholder="Write your comment here..."
+        formControlName="text">
+      </textarea>
+      
+      <br>
+
+      <input type="submit" cols="165" rows="6" class="btn btn-dark" value="Send comment">
+      
+    </form>
+  </div> <!-- write comment div end -->
+  
+  <br><br>
+</div>
+{{postCommentString}}
+{{res}}
+
+<br>
+
+<app-footer></app-footer>
